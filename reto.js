@@ -44,7 +44,7 @@ function challenge(word)
 
     for(key in words)
     {
-        //output += key + '  -> ' + words[key] + '\n';
+        output += key + '  -> ' + words[key] + '\n';
     }
     let quantity = Object.keys(words).length
 
@@ -56,7 +56,6 @@ function challenge(word)
         if(frecuency_count + words[key]<= eigthy)
         {
             frecuency_count+=words[key];
-            console.log(frecuency_count)
             pareto++;
         }
         else
