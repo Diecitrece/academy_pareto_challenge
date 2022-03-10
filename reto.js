@@ -6,7 +6,8 @@ function challenge(word)
 
     //word = word.normalize("NFD").replace(/[^a-z0-9\s]+/ig, ''); Esto sería para eliminar acentos, además admite números
     word = word.replace(/[^a-z\sÀ-ÿ-]+/ig, " ").replace(/[\r\n]/g, " ").replace(/\s{2,}/g, ' ').replace(/-{2,4}/g, ' ').toLowerCase().split(' '); //Esto admite acentos, pero no admite números
-    word = word.toLowerCase().split(' ');
+    // word = word.toLowerCase().split(' ');
+    let word_count = 0;
     word.map((item) =>
     {
         if(item != '')
@@ -14,11 +15,12 @@ function challenge(word)
             if(!(item in words))
             {
                 words[item] = 1;
-                // words.push([item, words[item]])
+                word_count+=1
             }
             else
             {
                 words[item] += 1;
+                word_count+=1
             }
         }
     })
@@ -42,14 +44,29 @@ function challenge(word)
 
     for(key in words)
     {
-        output += key + '  -> ' + words[key] + '\n';
+        //output += key + '  -> ' + words[key] + '\n';
     }
     let quantity = Object.keys(words).length
 
-    let twenty = Math.floor((quantity)*0.2);
+    let eigthy = Math.floor((word_count)*0.8);
+    let pareto = 0;
+    let frecuency_count = 0;
+    for(key in words)
+    {
+        if(frecuency_count + words[key]<= eigthy)
+        {
+            frecuency_count+=words[key];
+            console.log(frecuency_count)
+            pareto++;
+        }
+        else
+        {
+            break;
+        }
+    }
 
     output+='\nCantidad de palabras distintas: ' + quantity;
-    output+='\nSegún el principio de Pareto se necesitaría conocer el 20% de las palabras del texto para entenderlo.\nEl 20% de ' + quantity + ' es: ' + twenty;
+    output+='\nSegún el principio de Pareto se necesitaría conocer el 20% de las palabras del texto para entenderlo.\nEl 80% de ' + word_count + ' palabras que tiene el texto es: ' + eigthy + '.\nPor tanto, la cantidad de palabras distintas que tendrías que conocer para llegar al 20% es: ' + (quantity - pareto);
     return output;
 }
 
