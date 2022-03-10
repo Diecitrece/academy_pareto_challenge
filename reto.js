@@ -65,7 +65,7 @@ function challenge(word)
     }
 
     output+='\nCantidad de palabras distintas: ' + quantity;
-    output+='\nSegún el principio de Pareto se necesitaría conocer el 20% de las palabras del texto para entenderlo.\nEl 80% de ' + word_count + ' palabras que tiene el texto es: ' + eigthy + '.\nPor tanto, la cantidad de palabras distintas que tendrías que conocer para llegar al 20% es: ' + (quantity - pareto);
+    output+='\nSegún el principio de Pareto se necesitaría conocer el 20% de las palabras del texto para entenderlo.\nEl 80% de ' + word_count + ' palabras que tiene el texto es: ' + eigthy + '.\nPor tanto, la cantidad de palabras distintas que tendrías que conocer para llegar al 20% es: ' + pareto;
     return output;
 }
 
