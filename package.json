@@ -1,0 +1,10 @@
+{
+  "name": "reto_pareto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Diecitrece/devaway_academy_code.git",
+  "license": "MIT",
+  "scripts": {
+    "start": "node reto.js"
+  }
+}

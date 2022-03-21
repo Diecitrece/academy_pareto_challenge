@@ -1,1 +1,1 @@
-To run the program write "npm reto" in the console
+To run the program write "npm start" in the console
